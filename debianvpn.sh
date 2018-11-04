@@ -202,11 +202,12 @@ END
 	echo "<ca>" >> $CLIENT.ovpn
 	cat ca.crt >> $CLIENT.ovpn
 	echo -e "</ca>\n" >> $CLIENT.ovpn
-
+        cp $CLIENT.ovpn /home/vps/public_html/client.ovpn
+	cp $CLIENT.ovpn /root/client.ovpn
 	tar -czf ../ovpn-$CLIENT.tar.gz $CLIENT.conf ca.crt $CLIENT.ovpn
 	cd ~/
 	rm -rf ovpn-$CLIENT
-  rm -f debianvpn.sh
+        rm -f debianvpn.sh
 	echo ""
 	echo "Selesai!"
 	echo ""
